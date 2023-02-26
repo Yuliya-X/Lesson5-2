@@ -3,37 +3,27 @@
 // [345, 897, 568, 234] -> 2
 
 // рандомный массив случайных положительных трёхзначных чисел с выводом в печать 
-void Main()
+
+void FillArray(int[] numbers)
 {
-int[] array = new int[10]; // длина массива 10 
-Random random = new Random(); // наполняем массив 
-    for (int i = 0; i < array.Length; i++)
+    Random random = new Random(); // наполняем массив 
+    for (int i = 0; i < numbers.Length; i++)
     {
-        array[i] = random.Next(100, 999); // ограничила трёхзначные числа 
+        numbers[i] = random.Next(100, 999); // ограничила трёхзначные числа 
     }
+}
 // Выводим массив в печать  
-    Console.Write("Массив: ");
-    foreach (int item in array) // перебор по элементам массива в порядке возрастания индекса 
-    {
-        Console.Write(item + " "); // выводим элементы массива 
-    }
-Console.WriteLine(); // пустая строка 
-Console.WriteLine("Количество чётных чисел в массиве: " + Even(array)); // пишу count, полученный в Even полностю названием метода 
-// (если вынести строку вывода результата метода Even из метода Main, теряет связь с array) проверить на другой задаче!
-}
-
-// Метод, который возвращает количество чётных чисел в массиве
-int Even(int[] array)
+void PrintArray(int[] num)
 {
-    int count = 0;
-        foreach (int item in array) // перебираем массив на деление с остатком на 2, считаем количество чисел без остатка (== 0)
-        {
-            if (item % 2 == 0)
-                {
-                    count++;
-                }
-        }
-        return count;
+    Console.Write("Массив: ");
+     // перебор по элементам массива в порядке возрастания индекса 
+    for (int i = 0; i < num.Length; i++)
+    {
+        Console.Write(num[i] + " "); // выводим элементы массива 
+    }
 }
 
-Main();
+
+int[] array = new int[10]; // длина массива 10 
+FillArray(array);
+PrintArray(array);
