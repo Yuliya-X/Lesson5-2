@@ -3,25 +3,30 @@
 // [-4, -6, 89, 6] -> 0
 
 // рандомный массив случайных чисел с выводом в печать
-void Main()
+void FillArray(int[] numbers)
 {
-int[] array = new int[4]; // длина массива 4 
-Random random = new Random(); // наполняем массив 
-    for (int i = 0; i < array.Length; i++)
+    Random random = new Random(); // наполняем массив 
+    for (int i = 0; i < numbers.Length; i++)
     {
-        array[i] = random.Next(-9, 19); // ограничила от -9 до 19 числа 
+        numbers[i] = random.Next(-9, 99); // ограничила от -9 до 99 числа  
     }
+}
 // Выводим массив в печать  
+void PrintArray(int[] num)
+{
     Console.Write("Массив: ");
-    foreach (int item in array) // перебор по элементам массива в порядке возрастания индекса 
+     // перебор по элементам массива в порядке возрастания индекса 
+    for (int i = 0; i < num.Length; i++)
     {
-        Console.Write(item + " "); // выводим элементы массива 
+        Console.Write(num[i] + " "); // выводим элементы массива 
     }
-Console.WriteLine(); // пустая строка 
-Console.WriteLine("Сумма элементов под нечётными индексами в массиве: " + Sum(array)); // пишу sum, полученную в Sum полностю названием метода 
+}
+
+ 
+// пишу sum, полученную в Sum полностю названием метода 
 // (если вынести строку вывода результата метода Sum из метода Main, теряет связь с array) проверить на другой задаче! ++ 
 // если совсем не стыкуется можно добавить int sum = Sum(array); 
-}
+
 
 // Метод, который возвращает сумму элементов массива стоящий на нечётных индексах
 int Sum(int[] array)
@@ -35,4 +40,9 @@ int Sum(int[] array)
         return sum;
 }
 
-Main();
+
+int[] array = new int[4]; // длина массива 4 
+FillArray(array);
+PrintArray(array);
+Console.WriteLine(); // пустая строка
+Console.WriteLine("Сумма элементов под нечётными индексами в массиве: " + Sum(array));
